@@ -41,6 +41,15 @@ variable "organization_ri_sub_account_requester_schedule_expression" {
   default = "0 * * * ? *"
 }
 
+variable "organization_inventory_management" {
+  description = "Enable AWS Organization Inventory management. Default as 'xosphere'."
+  default = "xosphere"
+  validation {
+    condition     = contains(["none", "xosphere", "customer-provided"], var.organization_inventory_management)
+    error_message = "Invalid input, options: \"none\",\"xosphere\",\"customer-provided\"."
+  }
+}
+
 variable "xosphere_customer_inventory_s3_file_path" {
   description = "Customer inventory path in S3 bucket. Required."
   default = "/org-data/inventory.json.gz"
@@ -60,7 +69,7 @@ variable "xosphere_customer_inventory_enable_versioning" {
 
 variable "xosphere_customer_inventory_replication_role_arn" {
   description = "Customer arn for uploading inventory files"
-  default = null
+  default = ""
 }
 
 variable "xosphere_customer_inventory_cmk_custom_tag_name" {
@@ -83,6 +92,16 @@ variable "enable_enhanced_security" {
   description = "Enable enhanced security restrictions.  Default as false."
   type = bool
   default = false
+}
+
+variable "organization_inventory_baseline_requester_schedule_expression" {
+  description = "Cron expression for the AWS Organization Inventory Baseline Requester schedule"
+  default = "0/15 * * * ? *"
+}
+
+variable "organization_inventory_customer_parser_schedule_expression" {
+  description = "Cron expression for the AWS Organization Inventory Customer Parser schedule"
+  default = "0/1 * * * ? *"
 }
 
 
