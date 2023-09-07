@@ -47,7 +47,7 @@ resource "aws_s3_bucket" "organization_data_access_logs_bucket" {
     }
   }
   force_destroy = true
-  bucket_prefix = var.organization_data_access_logs_bucket_name_override == null ? "organization_data_bucket_access_logs" : null
+  bucket_prefix = var.organization_data_access_logs_bucket_name_override == null ? "organization-data-bucket-access-logs" : null
   bucket = var.organization_data_access_logs_bucket_name_override == null ? null : var.organization_data_access_logs_bucket_name_override
 }
 
@@ -121,7 +121,7 @@ resource "aws_s3_bucket" "organization_data_bucket" {
     }
   }
   force_destroy = true
-  bucket_prefix = var.organization_data_bucket_name_override == null ? "organization_data_bucket" : null
+  bucket_prefix = var.organization_data_bucket_name_override == null ? "organization-data-bucket" : null
   bucket = var.organization_data_bucket_name_override == null ? null : var.organization_data_bucket_name_override
 }
 
