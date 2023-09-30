@@ -350,10 +350,11 @@ resource "aws_lambda_function" "xosphere_organization_ri_data_gatherer_lambda_fu
     }
   }
   function_name = local.lambda_function_map_xosphere_organization_ri_data_gatherer
-  handler = "ri-data-gatherer"
+  handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_ri_data_gatherer_lambda_role.arn
-  runtime = "go1.x"
+  runtime = "provided.al2"
+  architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_ri_data_gatherer_log_group ]
 }
@@ -537,10 +538,11 @@ resource "aws_lambda_function" "xosphere_organization_inventory_data_processor_l
     }
   }
   function_name = local.lambda_function_map_xosphere_organization_inventory_data_processor
-  handler = "inv-data-processor"
+  handler = "bootstrap"
   memory_size = 256
   role = aws_iam_role.xosphere_organization_inventory_data_processor_lambda_role.arn
-  runtime = "go1.x"
+  runtime = "provided.al2"
+  architectures = [ "arm64" ]
   timeout = 300
   reserved_concurrent_executions = 1
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_inventory_data_processor_log_group ]
@@ -1163,10 +1165,11 @@ resource "aws_lambda_function" "xosphere_organization_ri_sub_account_submission_
     }
   }
   function_name = local.lambda_function_map_xosphere_organization_ri_sub_account_submission_processor
-  handler = "ri-sub-acct-processor"
+  handler = "bootstrap"
   memory_size = 256
   role = aws_iam_role.xosphere_organization_ri_sub_account_submission_processor_role.arn
-  runtime = "go1.x"
+  runtime = "provided.al2"
+  architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_ri_sub_account_submission_processor_log_group ]
 }
@@ -1182,10 +1185,11 @@ resource "aws_lambda_function" "xosphere_organization_ri_data_merger_lambda_func
     }
   }
   function_name = local.lambda_function_map_xosphere_organization_ri_data_merger
-  handler = "ri-data-merger"
+  handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_ri_data_merger_lambda_role.arn
-  runtime = "go1.x"
+  runtime = "provided.al2"
+  architectures = [ "arm64" ]
   timeout = 900
   reserved_concurrent_executions = 1
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_ri_data_merger_log_group ]
@@ -1527,10 +1531,11 @@ resource "aws_lambda_function" "xosphere_organization_ri_sub_account_reporter_la
     }
   }
   function_name = local.lambda_function_map_xosphere_organization_ri_sub_account_reporter
-  handler = "ri-sub-acct-reporter"
+  handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_ri_sub_account_reporter_role.arn
-  runtime = "go1.x"
+  runtime = "provided.al2"
+  architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_ri_sub_account_reporter_log_group ]
 }
@@ -1821,10 +1826,11 @@ resource "aws_lambda_function" "xosphere_organization_ri_sub_account_requester_l
     }
   }
   function_name = local.lambda_function_map_xosphere_organization_ri_sub_account_requester
-  handler = "ri-sub-acct-requester"
+  handler = "bootstrap"
   memory_size = 256
   role = aws_iam_role.xosphere_organization_ri_sub_account_requester_role.arn
-  runtime = "go1.x"
+  runtime = "provided.al2"
+  architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_ri_sub_account_requester_log_group ]
 }
@@ -1860,10 +1866,11 @@ resource "aws_lambda_function" "xosphere_organization_instance_state_event_colle
     }
   }
   function_name = local.lambda_function_map_xosphere_organization_instance_state_event_collector
-  handler = "inst-state-event-collector"
+  handler = "bootstrap"
   memory_size = 256
   role = aws_iam_role.xosphere_organization_instance_state_event_collector_lambda_role.arn
-  runtime = "go1.x"
+  runtime = "provided.al2"
+  architectures = [ "arm64" ]
   timeout = 300
   reserved_concurrent_executions = 1
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_instance_state_event_collector_log_group ]
@@ -2095,10 +2102,11 @@ resource "aws_lambda_function" "xosphere_organization_inventory_baseline_merger_
     }
   }
   function_name = local.lambda_function_map_xosphere_organization_inventory_baseline_merger
-  handler = "inv-baseline-merger"
+  handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_inventory_baseline_merger_lambda_role[0].arn
-  runtime = "go1.x"
+  runtime = "provided.al2"
+  architectures = [ "arm64" ]
   timeout = 900
   reserved_concurrent_executions = 1
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_inventory_baseline_merger_log_group ]
@@ -2285,10 +2293,11 @@ resource "aws_lambda_function" "xosphere_organization_inventory_baseline_reporte
     }
   }
   function_name = local.lambda_function_map_xosphere_organization_inventory_baseline_reporter
-  handler = "inv-baseline-reporter"
+  handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_inventory_baseline_reporter_lambda_role[0].arn
-  runtime = "go1.x"
+  runtime = "provided.al2"
+  architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_inventory_baseline_reporter_log_group ]
 }
@@ -2487,10 +2496,11 @@ resource "aws_lambda_function" "xosphere_organization_inventory_baseline_request
     }
   }
   function_name = local.lambda_function_map_xosphere_organization_inventory_baseline_requester
-  handler = "inv-baseline-requester"
+  handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_inventory_baseline_requester_lambda_role[0].arn
-  runtime = "go1.x"
+  runtime = "provided.al2"
+  architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_inventory_baseline_requester_log_group ]
 }
@@ -2684,10 +2694,11 @@ resource "aws_lambda_function" "xosphere_organization_inventory_data_enricher_la
     }
   }
   function_name = local.lambda_function_map_xosphere_organization_inventory_data_enricher
-  handler = "inv-data-enricher"
+  handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_inventory_data_enricher_lambda_role[0].arn
-  runtime = "go1.x"
+  runtime = "provided.al2"
+  architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_inventory_data_enricher_log_group ]
 }
@@ -2867,10 +2878,11 @@ resource "aws_lambda_function" "xosphere_organization_inventory_customer_parser_
     }
   }
   function_name = local.lambda_function_map_xosphere_organization_inventory_customer_parser
-  handler = "inv-customer-parser"
+  handler = "bootstrap"
   memory_size = 256
   role = aws_iam_role.xosphere_organization_inventory_customer_parser_lambda_role[0].arn
-  runtime = "go1.x"
+  runtime = "provided.al2"
+  architectures = [ "arm64" ]
   timeout = 300
   reserved_concurrent_executions = 1
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_inventory_customer_parser_log_group ]
