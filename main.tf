@@ -1028,7 +1028,7 @@ resource "aws_iam_role_policy" "xosphere_organization_ri_sub_account_submission_
       "Resource": "arn:aws:s3:::xosphere-*"
     },
     {
-      "Sid": "AllowSubAcctS3",
+      "Sid": "AllowSubAcctS3Slashes",
       "Effect": "Allow",
       "Action": [
         "s3:GetObject",
@@ -1039,6 +1039,21 @@ resource "aws_iam_role_policy" "xosphere_organization_ri_sub_account_submission_
       "Condition": {
         "StringLike": {
           "aws:ResourceTag/xosphere.io/instance-orchestrator/is-org-ri-sub-account-bucket": [ "true" ]
+        }
+      }
+    },
+    {
+      "Sid": "AllowSubAcctS3Colons",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion",
+        "s3:GetObjectVersionTagging"
+	    ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "aws:ResourceTag/xosphere:instance-orchestrator:is-org-ri-sub-account-bucket": [ "true" ]
         }
       }
     },
@@ -1643,7 +1658,8 @@ resource "aws_s3_bucket" "organization_ri_sub_account_data_bucket" {
   force_destroy = true
   bucket = var.organization_ri_sub_account_data_bucket_name_override != null ? var.organization_ri_sub_account_data_bucket_name_override : null
   tags = {
-    "xosphere.io/instance-orchestrator/is-org-ri-sub-account-bucket": "true"
+    "xosphere.io/instance-orchestrator/is-org-ri-sub-account-bucket": "true",
+    "xosphere:instance-orchestrator:is-org-ri-sub-account-bucket": "true"
   }
 }
 
