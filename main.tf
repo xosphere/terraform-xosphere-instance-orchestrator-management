@@ -353,7 +353,7 @@ resource "aws_lambda_function" "xosphere_organization_ri_data_gatherer_lambda_fu
   handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_ri_data_gatherer_lambda_role.arn
-  runtime = "provided.al2"
+  runtime = "provided.al2023"
   architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_ri_data_gatherer_log_group ]
@@ -541,7 +541,7 @@ resource "aws_lambda_function" "xosphere_organization_inventory_data_processor_l
   handler = "bootstrap"
   memory_size = 256
   role = aws_iam_role.xosphere_organization_inventory_data_processor_lambda_role.arn
-  runtime = "provided.al2"
+  runtime = "provided.al2023"
   architectures = [ "arm64" ]
   timeout = 300
   reserved_concurrent_executions = 1
@@ -1183,7 +1183,7 @@ resource "aws_lambda_function" "xosphere_organization_ri_sub_account_submission_
   handler = "bootstrap"
   memory_size = 256
   role = aws_iam_role.xosphere_organization_ri_sub_account_submission_processor_role.arn
-  runtime = "provided.al2"
+  runtime = "provided.al2023"
   architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_ri_sub_account_submission_processor_log_group ]
@@ -1203,7 +1203,7 @@ resource "aws_lambda_function" "xosphere_organization_ri_data_merger_lambda_func
   handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_ri_data_merger_lambda_role.arn
-  runtime = "provided.al2"
+  runtime = "provided.al2023"
   architectures = [ "arm64" ]
   timeout = 900
   reserved_concurrent_executions = 1
@@ -1549,7 +1549,7 @@ resource "aws_lambda_function" "xosphere_organization_ri_sub_account_reporter_la
   handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_ri_sub_account_reporter_role.arn
-  runtime = "provided.al2"
+  runtime = "provided.al2023"
   architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_ri_sub_account_reporter_log_group ]
@@ -1845,7 +1845,7 @@ resource "aws_lambda_function" "xosphere_organization_ri_sub_account_requester_l
   handler = "bootstrap"
   memory_size = 256
   role = aws_iam_role.xosphere_organization_ri_sub_account_requester_role.arn
-  runtime = "provided.al2"
+  runtime = "provided.al2023"
   architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_ri_sub_account_requester_log_group ]
@@ -1885,7 +1885,7 @@ resource "aws_lambda_function" "xosphere_organization_instance_state_event_colle
   handler = "bootstrap"
   memory_size = 256
   role = aws_iam_role.xosphere_organization_instance_state_event_collector_lambda_role.arn
-  runtime = "provided.al2"
+  runtime = "provided.al2023"
   architectures = [ "arm64" ]
   timeout = 300
   reserved_concurrent_executions = 1
@@ -2121,7 +2121,7 @@ resource "aws_lambda_function" "xosphere_organization_inventory_baseline_merger_
   handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_inventory_baseline_merger_lambda_role[0].arn
-  runtime = "provided.al2"
+  runtime = "provided.al2023"
   architectures = [ "arm64" ]
   timeout = 900
   reserved_concurrent_executions = 1
@@ -2312,7 +2312,7 @@ resource "aws_lambda_function" "xosphere_organization_inventory_baseline_reporte
   handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_inventory_baseline_reporter_lambda_role[0].arn
-  runtime = "provided.al2"
+  runtime = "provided.al2023"
   architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_inventory_baseline_reporter_log_group ]
@@ -2515,7 +2515,7 @@ resource "aws_lambda_function" "xosphere_organization_inventory_baseline_request
   handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_inventory_baseline_requester_lambda_role[0].arn
-  runtime = "provided.al2"
+  runtime = "provided.al2023"
   architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_inventory_baseline_requester_log_group ]
@@ -2713,7 +2713,7 @@ resource "aws_lambda_function" "xosphere_organization_inventory_data_enricher_la
   handler = "bootstrap"
   memory_size = 1024
   role = aws_iam_role.xosphere_organization_inventory_data_enricher_lambda_role[0].arn
-  runtime = "provided.al2"
+  runtime = "provided.al2023"
   architectures = [ "arm64" ]
   timeout = 900
   depends_on = [ aws_cloudwatch_log_group.xosphere_organization_inventory_data_enricher_log_group ]
@@ -2897,7 +2897,7 @@ resource "aws_lambda_function" "xosphere_organization_inventory_customer_parser_
   handler = "bootstrap"
   memory_size = 256
   role = aws_iam_role.xosphere_organization_inventory_customer_parser_lambda_role[0].arn
-  runtime = "provided.al2"
+  runtime = "provided.al2023"
   architectures = [ "arm64" ]
   timeout = 300
   reserved_concurrent_executions = 1
